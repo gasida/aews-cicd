@@ -1,5 +1,5 @@
 FROM ubuntu:20.04
-ENV TZ=Asia/Seoul MYVERSION=1.0.0 NICK=cloudneta
+ENV TZ=Asia/Seoul MYVERSION=1.0.0 NICK=aews
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && \
     sed -i 's/archive.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list && \
     sed -i 's/security.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list && \
