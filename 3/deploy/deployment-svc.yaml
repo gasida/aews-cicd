@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myweb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mywebs
+  template:
+    metadata:
+      name: myweb
+      labels:
+        app: mywebs
+    spec:
+      containers:
+      - name: myweb
+        image: gasida/myweb:v1.0.0
+      terminationGracePeriodSeconds: 0
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: myweb
+spec:
+  ports:
+    - name: webport
+      port: 8080
+      targetPort: 80
+  selector:
+    app: mywebs
+  type: ClusterIP
+---
