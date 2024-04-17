@@ -1,0 +1,50 @@
+pipeline {
+    agent any
+    stages {
+        stage('Compile') {
+            steps {
+                echo "Compiled successfully!";
+                sh 'sleep 1'
+            }
+        }
+
+        stage('JUnit') {
+            steps {
+                echo "JUnit passed successfully!";
+                sh 'sleep 1'
+            }
+        }
+
+        stage('Code Analysis') {
+            steps {
+                echo "Code Analysis completed successfully!";
+                sh 'sleep 1'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo "Deployed successfully!";
+                sh 'sleep 1'
+            }
+        }
+    }
+
+    post {
+      always {
+        echo "This will always run"
+      }
+      success {
+        echo "This will run when the run finished successfully"
+      }
+      failure {
+        echo "This will run if failed"
+      }
+      unstable {
+        echo "This will run when the run was marked as unstable"
+      }
+      changed {
+        echo "This will run when the state of the pipeline has changed"
+      }
+    }
+}
