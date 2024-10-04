@@ -14,7 +14,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2. AWS 자격 증명 설정
+      # 2. AWS 자격 증명 설정 !!!
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
